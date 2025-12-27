@@ -13,12 +13,13 @@ const createServer=async (PORT,MongoDbUrl)=>{
 
     try{
             let mongoDbConnect=await mongoose.connect(MongoDbUrl)
-            console.log('MongoDb is Connected')
+            console.log('MongoDb is Connected' + mongoDbConnect.connection.host)
             app.listen(PORT,()=>{console.log(`Server is Running on Port ${PORT}`)})
     }
 
     catch(err){
         console.log(err)
+        process.exit(1)
     }
 
 
