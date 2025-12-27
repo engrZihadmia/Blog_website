@@ -1,0 +1,40 @@
+<%- include('../../partials/head.ejs', {title:'Singup Page'})%>
+
+
+    <div class="card-body">
+
+        <div class="container py-3 my-container">
+            <h4 class="text-center">Create A New Account</h4>
+            <form action="/blog/singup" method="POST">
+                <div class="mb-3">
+                    <label for="usernameField" class="form-label">Enter Your User Name (Must Be Unique)</label>
+                    <input type="text" class="form-control" id="usernameField" name="name" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="userEmailField" class="form-label">Enter Your Valid Email Address</label>
+                    <input type="email" class="form-control" id="userEmailField" name="email" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="passwordField" class="form-label">Enter your Password</label>
+                    <input type="password" class="form-control" id="passwordField" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="confirmpasswordField" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmpasswordField" name="confirmpassword">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sing Up</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    <%- include('../../partials/footer.ejs')%>
+        </body>
+
+        </html>

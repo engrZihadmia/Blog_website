@@ -1,0 +1,26 @@
+<%- include('../../partials/head.ejs', {title:'Log In Page'})%>
+
+
+    <div class="container py-3 my-container">
+        <form>
+            <div class="mb-3">
+                <label for="EmailField" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="EmailField"  name="email" />
+            </div>
+
+            <div class="mb-3">
+                <label for="passwordField" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordField" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+    </div>
+
+
+
+
+    <%- include('../../partials/footer.ejs')%>
+        </body>
+
+        </html>
