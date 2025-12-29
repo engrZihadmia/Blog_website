@@ -1,58 +1,57 @@
 // user title bio profilepic links{fb, instagram, linkedin} bookmark[] posts[]
 
-const {model , Schema} = require('mongoose')
-const Post = require('./post')
-const User= require('./user')
+const { model, Schema } = require('mongoose')
 
-const profileSchema= new Schema({
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:User,
-    }, 
 
-    name:{
-        type:String,
-        required:true,
-        maxLength:30,
-        trim:true,
+const profileSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
     },
 
-    title:{
-        type:String,
-        trim:true,
-        maxLength:100,
+    name: {
+        type: String,
+        required: true,
+        maxLength: 30,
+        trim: true,
     },
 
-    bio:{
-        type:String,
-        
-    },
-    
-    profilePic:String,
-
-    links:{
-        Website:String,
-        Facebook:String,
-        Twitter:String,
-        Linkedin:String,
-        github:String
+    title: {
+        type: String,
+        trim: true,
+        maxLength: 100,
     },
 
-    post:[
+    bio: {
+        type: String,
+
+    },
+
+    profilePic: String,
+
+    links: {
+        Website: String,
+        Facebook: String,
+        Twitter: String,
+        Linkedin: String,
+        github: String
+    },
+
+    post: [
         {
-            type:Schema.Types.ObjectId,
-            ref:Post,
+            type: Schema.Types.ObjectId,
+            ref: "Post",
         }
     ],
 
-    bookmark:[
-            {
-                type:Schema.Types.ObjectId,
-                ref:Post,
-            }, 
+    bookmark: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Post",
+        },
     ],
 
-}, {timestamps:true})
+}, { timestamps: true })
 
 
-module.exports=model('Profile', profileSchema)
+module.exports = model('Profile', profileSchema)

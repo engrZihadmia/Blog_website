@@ -1,40 +1,60 @@
 <%- include('../../partials/head.ejs', {title:'Singup Page'})%>
 
 
-    <div class="card-body">
+<div class="card-body">
 
-        <div class="container py-3 my-container">
-            <h4 class="text-center">Create A New Account</h4>
-            <form action="/blog/singup" method="POST">
-                <div class="mb-3">
-                    <label for="usernameField" class="form-label">Enter Your User Name (Must Be Unique)</label>
-                    <input type="text" class="form-control" id="usernameField" name="name" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="userEmailField" class="form-label">Enter Your Valid Email Address</label>
-                    <input type="email" class="form-control" id="userEmailField" name="email" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="passwordField" class="form-label">Enter your Password</label>
-                    <input type="password" class="form-control" id="passwordField" name="password">
-                </div>
-                <div class="mb-3">
-                    <label for="confirmpasswordField" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmpasswordField" name="confirmpassword">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Sing Up</button>
-            </form>
+  <div class="container py-3 my-container">
+    <h4 class="text-center">Create A New Account</h4>
+    <form action="/singup" method="POST">
+      <div class="mb-3">
+        <label for="usernameField" class="form-label">Enter Your User Name (Must Be Unique)</label>
+        <input type="text" class="form-control <%= errors.username? 'is-invalid':''%>" id="usernameField" name="username" value="<%= previousValues.username? previousValues.username : '' %>" />
+        <% if(errors.username){%>
+        <div class="invalid-feedback">
+          <%=errors.username%>
         </div>
+        <% }%>
+      </div>
 
-    </div>
+      <div class="mb-3">
+        <label for="userEmailField" class="form-label">Enter Your Valid Email Address</label>
+        <input type="email" class="form-control <%= errors.email? 'is-invalid':''%>" id="userEmailField" name="email" value="<%= previousValues.email? previousValues.email : '' %>" />
+        <% if(errors.email){%>
+        <div class="invalid-feedback">
+          <%=errors.email%>
+        </div>
+        <% }%>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwordField" class="form-label">Enter your Password</label>
+        <input type="password" class="form-control <%= errors.password? 'is-invalid':''%>" id="passwordField" name="password" value="<%= previousValues.password? previousValues.password : '' %>" />
+        <% if(errors.password){%>
+        <div class="invalid-feedback">
+          <%=errors.password%>
+        </div>
+        <% }%>
+      </div>
+      <div class="mb-3">
+        <label for="confirmpasswordField" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control <%= errors.confirmpassword ?'is-invalid':''%>" id="confirmpasswordField" name="confirmpassword">
+        <% if(errors.confirmpassword){%>
+        <div class="invalid-feedback">
+          <%=errors.confirmpassword%>
+        </div>
+        <% }%>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sing Up</button>
+    </form>
+  </div>
+
+</div>
 
 
 
 
-    <%- include('../../partials/footer.ejs')%>
-        </body>
+<%- include('../../partials/footer.ejs')%>
+</body>
 
-        </html>
+</html>
